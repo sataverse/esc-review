@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .animation {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  .table-line {
+    @apply flex;
+  }
+
+  .table-line > div {
+    @apply p-6px border-black border-r-1px border-b-1px text-14px;
+  }
+
+  .table-line > div:first-child {
+    @apply border-r-1px border-l-1px;
+  }
+
+  .table-header {
+    @apply border-black border-t-1px bg-gray-300;
+  }
+
+  .table-header > div {
+    @apply text-center;
+  }
+
+  .table-header > div > div {
+    @apply font-normal;
+  }
+
+  .table-header > div > div > div {
+    @apply font-normal;
+  }
+
+  .square {
+    @apply relative before:content-[""] block pt-[100%];
+  }
+
+  .square > * {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .center {
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .box-shadow-top {
+    box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .box-shadow {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .score-bar > div > div {
+    @apply h-7px border-t-[0.1rem] border-b-[0.1rem] border-black;
+  }
+
+  .score-bar > div > div:first-child {
+    @apply w-15px border-l-[0.1rem];
+  }
+
+  .score-bar > div > div:last-child {
+    @apply w-14px border-r-[0.1rem];
+  }
+
+  .scroll-overlay {
+    scrollbar-color: #aaaaaa transparent;
+    scrollbar-width: thin;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --red-50: rgb(254 242 242);
+  --red-100: rgb(254 226 226);
+  --red-200: rgb(254 202 202);
+  --red-300: rgb(252 165 165);
+  --red-400: rgb(248 113 113);
+  --red-500: rgb(239 68 68);
+  --red-600: rgb(220 38 38);
+  --red-700: rgb(185 28 28);
+  --red-800: rgb(153 27 27);
+  --red-900: rgb(127 29 29);
+  --red-950: rgb(69 10 10);
+  --indigo-50: rgb(238, 242, 255);
+  --indigo-100: rgb(224 231 255);
+  --indigo-200: rgb(199 210 254);
+  --indigo-300: rgb(165 180 252);
+  --indigo-400: rgb(129 140 248);
+  --indigo-500: rgb(99 102 241);
+  --indigo-600: rgb(79 70 229);
+  --indigo-800: rgb(55 48 163);
+  --teal-50: rgb(240 253 250);
+  --teal-100: rgb(204 251 241);
+  --teal-200: rgb(153 246 228);
+  --teal-300: rgb(94 234 212);
+  --teal-400: rgb(45 212 191);
+  --teal-500: rgb(20 184 166);
+  --teal-600: rgb(13 148 136);
+  --teal-700: rgb(15 118 110);
+  --teal-800: rgb(17 94 89);
+  --teal-900: rgb(19 78 74);
+  --teal-950: rgb(4 47 46);
+  --violet-50: rgb(245 243 255);
+  --violet-100: rgb(237 233 254);
+  --violet-200: rgb(221 214 254);
+  --violet-300: rgb(196 181 253);
+  --violet-400: rgb(167 139 250);
+  --violet-500: rgb(139 92 246);
+  --violet-600: rgb(124 58 237);
+  --violet-700: rgb(109 40 217);
+  --violet-800: rgb(91 33 182);
+  --violet-900: rgb(76 29 149);
+  --violet-950: rgb(46 16 101);
+  --orange-100: rgb(255 237 213);
+  --orange-500: rgb(249 115 22);
+  --yellow-100: rgb(254 249 195);
+  --yellow-500: rgb(234 179 8);
+  --green-100: rgb(187 247 208);
+  --green-500: rgb(34 197 94);
+  --blue-100: rgb(219 234 254);
+  --blue-500: rgb(59 130 246);
+  --gray-100: rgb(243 244 246);
+  --gray-200: rgb(229 231 235);
+  --gray-300: rgb(209 213 219);
+  --gray-400: rgb(156 163 175);
+  --gray-500: rgb(107 114 128);
+  --gray-600: rgb(75 85 99);
+  --gray-700: rgb(55 65 81);
+  --gray-800: rgb(31 41 55);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+input[type='text'] {
+  outline: none;
+}
+
+select {
+  appearance: none;
+  padding-left: 0.25rem;
+  border: 0.125rem solid transparent;
+  background-image: url('/public/uiimage/select.png');
+  background-size: cover;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border: 0.125rem solid black;
+}
+
+::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-button {
+  display: none;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #aaaaaa;
+}
