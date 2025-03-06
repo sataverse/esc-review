@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/esc-review/static/css/main.0f015e68.css",
+    "main.js": "/esc-review/static/js/main.8a71a285.js",
+    "index.html": "/esc-review/index.html",
+    "main.0f015e68.css.map": "/esc-review/static/css/main.0f015e68.css.map",
+    "main.8a71a285.js.map": "/esc-review/static/js/main.8a71a285.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f015e68.css",
+    "static/js/main.8a71a285.js"
+  ]
+}
