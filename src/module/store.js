@@ -1,5 +1,19 @@
 import { create } from 'zustand';
 
+const modeStore = create((set) => ({
+  mode: 'table',
+  setMode: (mode) => {
+    set({ mode: mode });
+  },
+}));
+
+export function useMode() {
+  const mode = modeStore((state) => state.mode);
+  const setMode = modeStore((state) => state.setMode);
+
+  return { mode, setMode };
+}
+
 const sortStore = create((set) => ({
   sortId: 0,
   setSortId: (id) => {

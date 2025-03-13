@@ -30,7 +30,13 @@ export default function SearchBar() {
         onBlur={() => setIsFocused(false)}
         onChange={(e) => setTempSearchWord(e.target.value)}
       />
-      <button className="animation hover:rotate-90" onClick={() => setSearchWord('')}>
+      <button
+        className="animation hover:rotate-90"
+        onClick={() => {
+          setSearchWord('');
+          setTempSearchWord('');
+        }}
+      >
         <CancelIcon size={24} fill={'var(--gray-400)'} />
       </button>
     </div>

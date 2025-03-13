@@ -1,7 +1,7 @@
 import { getLevelColor, getScoreColor } from '../../../module/util';
 import InfoTapBasic from './InfoTapBasic';
 import ScoreTextIcon from './ScoreTextIcon';
-import { BookIcon, InstagramIcon, LockIcon, StarIcon } from '../../Icons';
+import { InstagramIcon, LockIcon, StarIcon } from '../../Icons';
 import { useState } from 'react';
 import InfoTapSynopsis from './InfoTapSynopsis';
 import InfoTapScore from './InfoTapScore';
@@ -11,7 +11,7 @@ function VisibleInfoSelectButton({ text, clicked, onClickFunc }) {
   return (
     <button
       className="w-80px p-1px border-b-2px border-b-transparent hover:border-b-gray-300"
-      style={{ borderBottomColor: clicked ? 'var(--blue-500)' : '' }}
+      style={{ borderBottomColor: clicked ? 'var(--indigo-500)' : '' }}
       onClick={() => onClickFunc()}
     >
       {text}
@@ -24,7 +24,7 @@ export default function DetailModalContent({ themeInfo }) {
 
   return (
     <>
-      <div className="w-full h-[4.5rem] md:h-[12%] p-8px flex flex-col justify-between md:flex-row md:items-center">
+      <div className="w-full h-[4.5rem] md:h-[12%] p-8px flex flex-col justify-between md:flex-row md:items-center bg-gray-100">
         <div className="text-20px md:text-32px">{themeInfo.theme}</div>
         <div className="hidden md:flex gap-12px">
           <ScoreTextIcon
@@ -34,6 +34,7 @@ export default function DetailModalContent({ themeInfo }) {
           <ScoreTextIcon icon={<LockIcon size={26} fill={getLevelColor(themeInfo.level)} />} score={themeInfo.level} />
           <div
             className="rounded-8px cursor-pointer hover:bg-gray-200"
+            style={{ display: themeInfo.instagram === '' ? 'none' : 'block' }}
             onClick={() => window.open(themeInfo.instagram, '_blank')}
           >
             <InstagramIcon size={26} />
@@ -47,6 +48,7 @@ export default function DetailModalContent({ themeInfo }) {
           <ScoreTextIcon icon={<LockIcon size={20} fill={getLevelColor(themeInfo.level)} />} score={themeInfo.level} />
           <div
             className="rounded-8px cursor-pointer hover:bg-gray-200"
+            style={{ display: themeInfo.instagram === '' ? 'none' : 'block' }}
             onClick={() => window.open(themeInfo.instagram, '_blank')}
           >
             <InstagramIcon size={20} />
@@ -54,10 +56,10 @@ export default function DetailModalContent({ themeInfo }) {
         </div>
       </div>
       <div className="w-full h-[27.5rem] md:h-[88%] flex flex-col md:flex-row scroll-overlay overflow-y-scroll md:overflow-y-hidden">
-        <div className="w-full md:w-[36%] h-[27.5rem] md:h-auto bg-neutral-700 md:bg-transparent">
+        <div className="w-full md:w-[36%] max-h-[27.5rem] md:max-h-max bg-neutral-300 md:bg-transparent">
           <img
-            className="w-full h-full object-contain object-center md:object-top z-[2]"
-            src={themeInfo.image.substr(1)}
+            className="w-full h-full object-contain object-center md:object-top"
+            src={`${process.env.PUBLIC_URL}${themeInfo.image.substr(1)}`}
             alt={themeInfo.theme}
           />
         </div>
@@ -84,7 +86,7 @@ export default function DetailModalContent({ themeInfo }) {
               onClickFunc={() => setVisibleInfoNum(3)}
             />
           </div>
-          <div className="min-h-[420px]">
+          <div className="min-h-[23.5rem]">
             {visibleInfoNum === 0 ? <InfoTapBasic themeInfo={themeInfo} /> : null}
             {visibleInfoNum === 1 ? <InfoTapSynopsis synopsis={themeInfo.synopsis} /> : null}
             {visibleInfoNum === 2 ? <InfoTapScore themeInfo={themeInfo} /> : null}
