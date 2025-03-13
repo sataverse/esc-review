@@ -8,15 +8,15 @@ export default function TableLine({ info }) {
     <div className="table-line">
       <div className="w-60px text-center">{info.id}</div>
       <div
-        className="w-260px"
+        className="w-300px"
         style={{ cursor: isNaN(info.id) ? 'default' : 'pointer' }}
         onClick={() => !isNaN(info.id) && setThemeId(info.id)}
       >
         {info.theme}
       </div>
       <div className="w-60px text-center">{info.place}</div>
-      <div className="w-140px">{info.brand}</div>
-      <div className="w-140px">{info.store}</div>
+      <div className="w-180px">{info.brand}</div>
+      <div className="w-180px">{info.store}</div>
       <div className="w-60px md:w-50px text-center font-semibold" style={{ color: getScoreColor(info.score)[1] }}>
         {isNaN(info.score) ? info.score : info.score.toFixed(1)}
       </div>

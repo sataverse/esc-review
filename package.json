@@ -15,9 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +40,5 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
   },
-  "homepage": "https://sataverse.github.io/esc-review/"
+  "homepage": "./"
 }

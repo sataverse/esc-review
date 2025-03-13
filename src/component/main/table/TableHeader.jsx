@@ -23,11 +23,11 @@ export default function TableHeader({}) {
       <div className="table-header md:hidden border-black border-t-1px">
         <TableLineSmall
           info={{
-            id: 'No.',
-            theme: '테마명 (자세히 보려면 클릭)',
-            place: '지역',
+            id: '',
+            theme: '테마명',
+            place: '장소',
             brand: '',
-            store: '매장',
+            store: '',
             score: '점수',
             level: '레벨',
             horror: '공포',

@@ -11,7 +11,7 @@ export default function ImageGrid({ data }) {
           <div className="w-full h-full overflow-hidden">
             <LazyImage
               className={'animation w-full h-full object-cover object-center hover:scale-105'}
-              src={item.image.substr(1)}
+              src={`${process.env.PUBLIC_URL}${item.image.substr(1)}`}
               alt={item.theme}
             />
           </div>
