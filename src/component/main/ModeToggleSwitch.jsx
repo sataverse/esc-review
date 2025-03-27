@@ -6,7 +6,7 @@ export default function ModeToggleSwitch({}) {
 
   return (
     <div
-      className="w-48px h-28px p-2px border-2px border-black rounded-full bg-white cursor-pointer"
+      className="w-48px h-28px p-2px border-black rounded-14px bg-white cursor-pointer"
       onClick={() => {
         if (mode === 'table') {
           setMode('grid');
@@ -16,7 +16,7 @@ export default function ModeToggleSwitch({}) {
       }}
     >
       <div
-        className="animation flex justify-center items-center size-20px rounded-full bg-black"
+        className="animation flex justify-center items-center size-24px rounded-12px bg-black"
         style={{ transform: mode === 'table' ? 'translateX(0)' : 'translate(20px)' }}
       >
         <div style={{ display: mode === 'table' ? 'block' : 'none' }}>

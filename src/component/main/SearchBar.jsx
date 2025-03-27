@@ -15,15 +15,15 @@ export default function SearchBar() {
 
   return (
     <div
-      className="flex justify-between items-center w-250px md:w-400px h-32px p-4px border-2px bg-white"
-      style={{ borderColor: isFocused ? 'black' : 'transparent' }}
+      className="flex justify-between items-center w-220px md:w-400px h-32px p-4px border-b-1px"
+      style={{ borderColor: isFocused ? 'black' : 'var(--gray-400)' }}
     >
       <button onClick={() => inputRef.current.focus()}>
-        <SearchIcon size={24} fill={'var(--gray-400)'} />
+        <SearchIcon size={20} fill={'var(--gray-400)'} />
       </button>
       <input
         type="text"
-        className="w-180px md:w-320px h-28px"
+        className="w-160px md:w-320px h-28px bg-transparent"
         value={tempSearchWord}
         ref={inputRef}
         onFocus={() => setIsFocused(true)}
@@ -37,7 +37,7 @@ export default function SearchBar() {
           setTempSearchWord('');
         }}
       >
-        <CancelIcon size={24} fill={'var(--gray-400)'} />
+        <CancelIcon size={20} fill={'var(--gray-400)'} />
       </button>
     </div>
   );
