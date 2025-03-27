@@ -24,7 +24,7 @@ export default function DetailModalContent({ themeInfo }) {
 
   return (
     <>
-      <div className="w-full h-[4.5rem] md:h-[12%] p-8px flex flex-col justify-between md:flex-row md:items-center bg-gray-100">
+      <div className="box-shadow-bottom w-full h-[4.5rem] md:h-[12%] p-8px flex flex-col justify-between md:flex-row md:items-center">
         <div className="text-20px md:text-32px">{themeInfo.theme}</div>
         <div className="hidden md:flex gap-12px">
           <ScoreTextIcon
@@ -37,7 +37,7 @@ export default function DetailModalContent({ themeInfo }) {
             style={{ display: themeInfo.instagram === '' ? 'none' : 'block' }}
             onClick={() => window.open(themeInfo.instagram, '_blank')}
           >
-            <InstagramIcon size={26} />
+            <img width={28} height={28} alt={'instagram'} src={`${process.env.PUBLIC_URL}/uiimage/instagram.png`} />
           </div>
         </div>
         <div className="flex gap-12px md:hidden">
@@ -51,12 +51,12 @@ export default function DetailModalContent({ themeInfo }) {
             style={{ display: themeInfo.instagram === '' ? 'none' : 'block' }}
             onClick={() => window.open(themeInfo.instagram, '_blank')}
           >
-            <InstagramIcon size={20} />
+            <img width={20} height={20} alt={'instagram'} src={`${process.env.PUBLIC_URL}/uiimage/instagram.png`} />
           </div>
         </div>
       </div>
       <div className="w-full h-[27.5rem] md:h-[88%] flex flex-col md:flex-row scroll-overlay overflow-y-scroll md:overflow-y-hidden">
-        <div className="w-full md:w-[36%] max-h-[27.5rem] md:max-h-max bg-neutral-300 md:bg-transparent">
+        <div className="w-full md:w-[36%] max-h-[27.5rem] md:max-h-max md:bg-transparent">
           <img
             className="w-full h-full object-contain object-center md:object-top"
             src={`${process.env.PUBLIC_URL}${themeInfo.image.substr(1)}`}

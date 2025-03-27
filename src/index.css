@@ -47,12 +47,16 @@
     @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
 
+  .box-shadow-bottom {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
+  }
+
   .box-shadow-top {
-    box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.3);
   }
 
   .box-shadow {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.4);
   }
 
   .score-bar > div > div {
@@ -166,7 +170,8 @@ input[type='text'] {
 select {
   appearance: none;
   padding-left: 0.25rem;
-  border: 0.125rem solid transparent;
+  border-bottom: 1px solid var(--gray-400);
+  background-color: transparent;
   background-image: url('/public/uiimage/select.png');
   background-size: cover;
 }
@@ -177,7 +182,7 @@ select:hover {
 
 select:focus {
   outline: none;
-  border: 0.125rem solid black;
+  border-bottom: 1px solid black;
 }
 
 ::-webkit-scrollbar {

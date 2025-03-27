@@ -20,7 +20,7 @@ export default function MainPage({}) {
     tempData = sorts[sortId].func([...tempData]);
     if (searchWord !== '') {
       tempData = tempData.filter((item) => {
-        const reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
+        const reg = /[`~!@$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
         const trimSearchWord = searchWord.replace(reg, '');
         const keywords = [item.theme.replace(reg, ''), ...item.keyword];
         for (var i = 0; i < keywords.length; i++) {
@@ -37,7 +37,7 @@ export default function MainPage({}) {
   return (
     <div>
       <div className="sticky top-0 w-full flex flex-col items-center bg-white z-[2]">
-        <div className="flex justify-center items-center gap-3 w-full h-48px bg-indigo-200 mb-8px">
+        <div className="box-shadow-bottom flex justify-center items-center gap-6 md:gap-24 w-full h-48px mb-8px">
           <SearchBar />
           <SortSelect />
         </div>
