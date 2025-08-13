@@ -28,7 +28,7 @@ export default function InfoTapBasic({ themeInfo }) {
       <div className="text-14px flex">
         <div className="flex">
           <div className="w-78px text-gray-500">{'힌트 제한'}</div>
-          <div className="w-80px">{hint[1] === -1 ? '무제한' : `${hint[1]}개`}</div>
+          <div className="w-80px">{hint[1] === -1 ? '무제한' : hint[1] === 0 ? '사용 불가' : `${hint[1]}개`}</div>
         </div>
         <div className="flex">
           <div className="w-38px text-gray-500">{'오픈'}</div>

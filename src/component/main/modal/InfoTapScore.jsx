@@ -13,8 +13,10 @@ function getScaleText(scale) {
     return '중';
   } else if (scale > 1) {
     return '중하';
-  } else {
+  } else if (scale > 0) {
     return '하';
+  } else {
+    return '???';
   }
 }
 
@@ -29,8 +31,10 @@ function getBrightnessText(brightness) {
     return '다소 어두움';
   } else if (brightness > 0) {
     return '어두움';
-  } else {
+  } else if (brightness > -1) {
     return '매우 어두움';
+  } else {
+    return '???';
   }
 }
 
