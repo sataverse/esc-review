@@ -1,4 +1,3 @@
-import { Rainbow } from '../../Icons';
 import { getScoreColor } from '../../../module/util';
 import { useMemo } from 'react';
 
@@ -133,6 +132,80 @@ export default function InfoTapScore({ themeInfo }) {
       (device > 0 ? device : 0)
     );
   }, []);
+  const average = num ? sum / num : 0;
+
+  const totalBase = 10 * num || 1;
+  const interiorPercent = interior > 0 ? (interior / totalBase) * 100 : 0;
+  const storyPercent = story > 0 ? (story / totalBase) * 100 : 0;
+  const directionPercent = direction > 0 ? (direction / totalBase) * 100 : 0;
+  const puzzlePercent = puzzle > 0 ? (puzzle / totalBase) * 100 : 0;
+  const devicePercent = device > 0 ? (device / totalBase) * 100 : 0;
+  const specialPercent = special > 0 ? (special / totalBase) * 100 : 0;
+
+  const totalFilledPercent =
+    interiorPercent + storyPercent + directionPercent + puzzlePercent + devicePercent + specialPercent;
+
+  let currentPercent = 0;
+  const donutSegments = [];
+
+  if (interiorPercent > 0) {
+    donutSegments.push({
+      color: 'var(--red-400)',
+      start: currentPercent,
+      end: currentPercent + interiorPercent,
+    });
+    currentPercent += interiorPercent;
+  }
+  if (storyPercent > 0) {
+    donutSegments.push({
+      color: 'var(--orange-400)',
+      start: currentPercent,
+      end: currentPercent + storyPercent,
+    });
+    currentPercent += storyPercent;
+  }
+  if (directionPercent > 0) {
+    donutSegments.push({
+      color: 'var(--yellow-400)',
+      start: currentPercent,
+      end: currentPercent + directionPercent,
+    });
+    currentPercent += directionPercent;
+  }
+  if (puzzlePercent > 0) {
+    donutSegments.push({
+      color: 'var(--green-400)',
+      start: currentPercent,
+      end: currentPercent + puzzlePercent,
+    });
+    currentPercent += puzzlePercent;
+  }
+  if (devicePercent > 0) {
+    donutSegments.push({
+      color: 'var(--blue-400)',
+      start: currentPercent,
+      end: currentPercent + devicePercent,
+    });
+    currentPercent += devicePercent;
+  }
+  if (specialPercent > 0) {
+    donutSegments.push({
+      color: 'var(--purple-400)',
+      start: currentPercent,
+      end: currentPercent + specialPercent,
+    });
+    currentPercent += specialPercent;
+  }
+
+  const donutBackground =
+    donutSegments.length === 0
+      ? 'conic-gradient(transparent 0% 100%)'
+      : `conic-gradient(${[
+          ...donutSegments.map((seg) => `${seg.color} ${seg.start}% ${seg.end}%`),
+          totalFilledPercent < 100 ? `transparent ${totalFilledPercent}% 100%` : null,
+        ]
+          .filter(Boolean)
+          .join(', ')})`;
 
   return (
     <div className="mt-4 flex flex-col">
@@ -153,7 +226,7 @@ export default function InfoTapScore({ themeInfo }) {
         <GradeText text={'인생테마'} isBig={score > 9.4} />
       </div>
       <div className="w-full h-1px mt-2 mb-2 bg-gray-200" />
-      <div className="flex">
+      <div className="flex items-center gap-12px">
         <div className="mb-2">
           <DetailScore text={'인테리어'} score={interior} color={'var(--red-400)'} />
           <DetailScore text={'스토리'} score={story} color={'var(--orange-400)'} />
@@ -163,21 +236,38 @@ export default function InfoTapScore({ themeInfo }) {
           <DetailScore text={'창의성'} score={special} color={'var(--purple-400)'} />
         </div>
         <div>
-          {sum / num > 10 ? (
-            <div className="w-240px h-6px">
-              <Rainbow width={240} height={6} />
+          {average > 10 ? (
+            <div className="w-160px h-160px flex items-center justify-center">
+              <div className="relative w-120px h-120px flex items-center justify-center">
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background:
+                      'conic-gradient(var(--red-400), var(--orange-400), var(--yellow-400), var(--green-400), var(--blue-400), var(--purple-400), var(--red-400))',
+                    padding: '8px',
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-white" />
+                </div>
+                <div className="absolute text-16px font-semibold">{average.toFixed(2)}</div>
+              </div>
             </div>
           ) : (
-            <div className="w-240px h-6px bg-gray-300 rounded-full overflow-hidden flex">
-              <div className="bg-red-400 h-6px" style={{ width: `${(interior / (10 * num)) * 100}%` }} />
-              <div className="bg-orange-400 h-6px" style={{ width: `${(story / (10 * num)) * 100}%` }} />
-              <div className="bg-yellow-400 h-6px" style={{ width: `${(direction / (10 * num)) * 100}%` }} />
-              <div className="bg-green-400 h-6px" style={{ width: `${(puzzle / (10 * num)) * 100}%` }} />
-              <div className="bg-blue-400 h-6px" style={{ width: `${(device / (10 * num)) * 100}%` }} />
-              <div className="bg-purple-400 h-6px" style={{ width: `${(special / (10 * num)) * 100}%` }} />
+            <div className="w-160px h-160px flex items-center justify-center">
+              <div className="relative w-120px h-120px flex items-center justify-center">
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: donutBackground,
+                    padding: '8px',
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-white" />
+                </div>
+                <div className="absolute text-16px font-semibold">{average.toFixed(2)}</div>
+              </div>
             </div>
           )}
-          <div className="w-240px text-14px text-right font-semibold">{(sum / num).toFixed(2)}</div>
         </div>
       </div>
       <div className="w-full h-1px mt-2 mb-2 bg-gray-200" />
