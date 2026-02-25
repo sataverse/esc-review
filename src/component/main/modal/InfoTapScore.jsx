@@ -153,30 +153,32 @@ export default function InfoTapScore({ themeInfo }) {
         <GradeText text={'인생테마'} isBig={score > 9.4} />
       </div>
       <div className="w-full h-1px mt-2 mb-2 bg-gray-200" />
-      <div className="mb-2">
-        <DetailScore text={'인테리어'} score={interior} color={'var(--red-400)'} />
-        <DetailScore text={'스토리'} score={story} color={'var(--orange-400)'} />
-        <DetailScore text={'연출'} score={direction} color={'var(--yellow-400)'} />
-        <DetailScore text={'문제 퀄리티'} score={puzzle} color={'var(--green-400)'} />
-        <DetailScore text={'장치 퀄리티'} score={device} color={'var(--blue-400)'} />
-        <DetailScore text={'창의성'} score={special} color={'var(--purple-400)'} />
-      </div>
-      <div>
-        {sum / num > 10 ? (
-          <div className="w-240px h-6px">
-            <Rainbow width={240} height={6} />
-          </div>
-        ) : (
-          <div className="w-240px h-6px bg-gray-300 rounded-full overflow-hidden flex">
-            <div className="bg-red-400 h-6px" style={{ width: `${(interior / (10 * num)) * 100}%` }} />
-            <div className="bg-orange-400 h-6px" style={{ width: `${(story / (10 * num)) * 100}%` }} />
-            <div className="bg-yellow-400 h-6px" style={{ width: `${(direction / (10 * num)) * 100}%` }} />
-            <div className="bg-green-400 h-6px" style={{ width: `${(puzzle / (10 * num)) * 100}%` }} />
-            <div className="bg-blue-400 h-6px" style={{ width: `${(device / (10 * num)) * 100}%` }} />
-            <div className="bg-purple-400 h-6px" style={{ width: `${(special / (10 * num)) * 100}%` }} />
-          </div>
-        )}
-        <div className="w-240px text-14px text-right font-semibold">{(sum / num).toFixed(2)}</div>
+      <div className="flex">
+        <div className="mb-2">
+          <DetailScore text={'인테리어'} score={interior} color={'var(--red-400)'} />
+          <DetailScore text={'스토리'} score={story} color={'var(--orange-400)'} />
+          <DetailScore text={'연출'} score={direction} color={'var(--yellow-400)'} />
+          <DetailScore text={'문제 퀄리티'} score={puzzle} color={'var(--green-400)'} />
+          <DetailScore text={'장치 퀄리티'} score={device} color={'var(--blue-400)'} />
+          <DetailScore text={'창의성'} score={special} color={'var(--purple-400)'} />
+        </div>
+        <div>
+          {sum / num > 10 ? (
+            <div className="w-240px h-6px">
+              <Rainbow width={240} height={6} />
+            </div>
+          ) : (
+            <div className="w-240px h-6px bg-gray-300 rounded-full overflow-hidden flex">
+              <div className="bg-red-400 h-6px" style={{ width: `${(interior / (10 * num)) * 100}%` }} />
+              <div className="bg-orange-400 h-6px" style={{ width: `${(story / (10 * num)) * 100}%` }} />
+              <div className="bg-yellow-400 h-6px" style={{ width: `${(direction / (10 * num)) * 100}%` }} />
+              <div className="bg-green-400 h-6px" style={{ width: `${(puzzle / (10 * num)) * 100}%` }} />
+              <div className="bg-blue-400 h-6px" style={{ width: `${(device / (10 * num)) * 100}%` }} />
+              <div className="bg-purple-400 h-6px" style={{ width: `${(special / (10 * num)) * 100}%` }} />
+            </div>
+          )}
+          <div className="w-240px text-14px text-right font-semibold">{(sum / num).toFixed(2)}</div>
+        </div>
       </div>
       <div className="w-full h-1px mt-2 mb-2 bg-gray-200" />
       <div className="flex flex-col md:flex-row gap-1">

@@ -90,7 +90,7 @@ export default function DetailModalContent({ themeInfo }) {
             {visibleInfoNum === 0 ? <InfoTapBasic themeInfo={themeInfo} /> : null}
             {visibleInfoNum === 1 ? <InfoTapSynopsis synopsis={themeInfo.synopsis} /> : null}
             {visibleInfoNum === 2 ? <InfoTapScore themeInfo={themeInfo} /> : null}
-            {visibleInfoNum === 3 ? <InfoTapReview short={themeInfo.short} comment={themeInfo.comment} /> : null}
+            {visibleInfoNum === 3 ? <InfoTapReview comment={themeInfo.comment} /> : null}
           </div>
         </div>
       </div>

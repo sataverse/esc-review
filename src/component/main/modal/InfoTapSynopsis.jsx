@@ -1,3 +1,9 @@
 export default function InfoTapSynopsis({ synopsis }) {
-  return <div className="mt-4 text-14px text-justify whitespace-pre-wrap">{synopsis}</div>;
+  return (
+    <div className="mt-4">
+      <div className="md:h-400px md:overflow-y-scroll md:scroll-overlay text-14px text-justify whitespace-pre-wrap">
+        {synopsis}
+      </div>
+    </div>
+  );
 }
