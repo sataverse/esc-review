@@ -1,10 +1,30 @@
 export default function InfoTapBasic({ themeInfo }) {
-  const { theme, place, brand, store, genre, date, release, price, hint, time, player, difficulty } = themeInfo;
+  const { theme, place, brand, store, genre, date, release, price, hint, time, player, difficulty, status } = themeInfo;
+  const statusBadge = () => {
+    if (status === 1) {
+      return { color: 'bg-red-200 text-red-700', text: '삭제됨' };
+    } else if (status === 2) {
+      return { color: 'bg-orange-200 text-orange-700', text: '삭제예정' };
+    } else if (status === 3) {
+      return { color: 'bg-blue-200 text-blue-700', text: '개편됨' };
+    } else if (status === 4) {
+      return { color: 'bg-green-200 text-green-700', text: '개편예정' };
+    }
+  };
   return (
     <div className="mt-4">
       <div className="text-20px font-medium -mb-2px">{theme}</div>
       <div className="text-14px mb-8px text-gray-500">{`${place} • ${brand} ${store}`}</div>
       <div className="w-full h-1px mb-2 bg-gray-200" />
+      {status !== 0 && (
+        <div className="flex mb-4px">
+          <div
+            className={`text-10px text-center w-50px h-18px leading-18px bg-red rounded-full ${statusBadge().color}`}
+          >
+            {statusBadge().text}
+          </div>
+        </div>
+      )}
       <div className="text-14px flex">
         <div className="flex">
           <div className="w-78px text-gray-500">{'플레이 타임'}</div>
