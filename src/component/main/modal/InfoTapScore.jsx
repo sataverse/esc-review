@@ -221,8 +221,8 @@ export default function InfoTapScore({ themeInfo }) {
         <GradeText text={'-'} isBig={score < 8.0 && score > 7.4} />
         <GradeText text={'꽃길'} isBig={score < 9.0 && score > 7.4} />
         <GradeText text={'-'} isBig={score < 9.0 && score > 8.4} />
-        <GradeText text={'꽃밭길'} isBig={score < 9.6 && score > 8.4} />
-        <GradeText text={'-'} isBig={score === 9.5} />
+        <GradeText text={'꽃밭길'} isBig={score < 9.7 && score > 8.4} />
+        <GradeText text={'-'} isBig={score < 9.7 && score > 9.4} />
         <GradeText text={'인생테마'} isBig={score > 9.4} />
       </div>
       <div className="w-full h-1px mt-2 mb-2 bg-gray-200" />
