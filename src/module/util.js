@@ -72,7 +72,7 @@ export const sorts = [
 ];
 
 export function getScoreColor(score) {
-  if (score > 9.5) {
+  if (score > 9.6) {
     return ['var(--blue-100)', 'var(--blue-500)'];
   } else if (score > 8.9) {
     return ['var(--green-100)', 'var(--green-500)'];
